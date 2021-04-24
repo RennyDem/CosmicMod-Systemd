@@ -11,7 +11,8 @@ eselect news read
 eselect news purge
 
 eselect profile list &&
-sleep 1m &&
+echo "setting selection 8 in 20 sec" &&
+sleep 20 &&
 eselect profile set 8
 
 # ls /usr/share/zoneinfo/US
@@ -19,11 +20,7 @@ echo "US/Central" > /etc/timezone
 
 emerge --config sys-libs/timezone-data
 
-emerge --sync &&
-sleep 3m &&
-emerge --ask --verbose linux-firmware &&
-sleep 1m &&
-emerge --ask --verbose sys-kernel/gentoo-kernel
+emerge --ask --verbose linux-firmware gentoo-kernel
 
 emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
 
