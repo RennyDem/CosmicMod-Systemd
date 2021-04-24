@@ -26,9 +26,12 @@ sleep 1m &&
 emerge --ask --verbose gentoo-kernel
 
 emerge --sync &&
-echo 'updating the system in 1 minute' &&
+echo 'Updating the system in 1 minute' &&
 sleep 1m &&
 emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
+
+# Host-env
+vim mnt/gentoo/etc/portage/package.use/circular.use
 
 emerge --ask --verbose --depclean 
 
@@ -53,8 +56,6 @@ eselect locale set 6
 env-update &&
 source /etc/profile &&
 export PS1="(chroot) $PS1"
-
-vim /etc/portage/package.use/circular.use
 
 emerge --ask --verbose net-misc/ntp &&
 ntpd -q -g &&
