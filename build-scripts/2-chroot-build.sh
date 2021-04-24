@@ -20,8 +20,14 @@ echo "US/Central" > /etc/timezone
 
 emerge --config sys-libs/timezone-data
 
-emerge --ask --verbose linux-firmware gentoo-kernel
+emerge --ask --verbose linux-firmware &&
+echo 'emerging the kernel in 1 minute' &&
+sleep 1m &&
+emerge --ask --verbose gentoo-kernel
 
+emerge --sync &&
+echo 'updating the system in 1 minute' &&
+sleep 1m &&
 emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
 
 emerge --ask --verbose --depclean 
