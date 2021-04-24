@@ -38,7 +38,7 @@ swapon /dev/sda2 &&
 mkdir /mnt/gentoo &&
 mount /dev/sda3 /mnt/gentoo &&
 cd /mnt/gentoo &&
-wget http://gentoo.osuosl.org/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20210414T214503Z.tar.xz &&
+wget http://gentoo.osuosl.org/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20210421T214502Z.tar.xz &&
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 mkdir --parents /mnt/gentoo/etc/portage/repos.conf &&
@@ -54,6 +54,8 @@ cp --dereference /etc/fstab /mnt/gentoo/etc/
 blkid
 
 vim /mnt/gentoo/etc/fstab
+
+vim /mnt/gentoo/etc/portage/package.use/zz.use
 
 mount --types proc /proc /mnt/gentoo/proc &&
 mount --rbind /sys /mnt/gentoo/sys &&
