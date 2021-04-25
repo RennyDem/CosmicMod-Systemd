@@ -72,15 +72,19 @@ paperconfig -p letter
 
 emerge --ask --verbose kde-plasma/plasma-meta
 
+eselect news list &&
+sleep 30 &&
+eselect news read &&
+sleep 30 &&
+eselect news purge
+
 # host-env
 # cp --dereference /etc/conf.d/display-manager /mnt/gentoo/etc/conf.d/
 
 usermod -a -G video sddm
 
-emerge --depclean
-
 # host-env
-# cp --dereference /var/lib/portage/world /mnt/gentoo/var/lib/portage/ 
+# cp --dereference /var/lib/portage/world /mnt/gentoo/var/lib/portage/
 
 emerge --ask --verbose --sync &&
 sleep 1m &&
