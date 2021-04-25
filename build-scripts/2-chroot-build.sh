@@ -70,24 +70,14 @@ emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
 
 paperconfig -p letter
 
-emerge --ask --verbose gentoolkit
-
-emerge --ask --verbose --depclean &&
-sleep 3m &&
-eclean -d distfiles
-
-emerge --ask --verbose --sync &&
-sleep 1m &&
 emerge --ask --verbose kde-plasma/plasma-meta
 
-vim /etc/conf.d/display-manager
-# DISPLAYMANAGER="sddm"
+# host-env
+# cp --dereference /etc/conf.d/display-manager /mnt/gentoo/etc/conf.d/
 
 usermod -a -G video sddm
 
-emerge --depclean &&
-sleep 1m &&
-eclean -d distfiles
+emerge --depclean
 
 # host-env
 # cp --dereference /var/lib/portage/world /mnt/gentoo/var/lib/portage/ 
