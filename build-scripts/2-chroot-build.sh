@@ -90,8 +90,10 @@ emerge --ask --verbose --sync &&
 sleep 1m &&
 emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
 
+eselect news list &&
+sleep 20 &&
 eselect news read &&
-sleep 1m &&
+sleep 30 &&
 eselect news purge &&
 revdep-rebuild
 
@@ -106,8 +108,9 @@ export PS1="(chroot) $PS1"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 emerge --ask --verbose --depclean &&
-sleep 1m &&
-eclean -d distfiles &&
+echo 'cleaning old dist files in 30 sec' &&
+sleep 30 &&
+eclean -d distfiles
 
 vim /etc/resolv.conf
 
