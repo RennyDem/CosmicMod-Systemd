@@ -33,37 +33,25 @@ emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
 # Host-env
 vim mnt/gentoo/etc/portage/package.use/circular.use
 
-emerge --ask --verbose --depclean 
-
-eclean -d distfiles
-
 emerge --ask --verbose vim &&
 sleep 1m &&
 emerge --ask --verbose --depclean &&
 eselect editor list &&
 sleep 1m &&
-eselect editor set 2
-
+eselect editor set 2 &&
 env-update &&
 source /etc/profile &&
-export PS1="(chroot) $PS1"
-
+export PS1="(chroot) $PS1" &&
 locale-gen &&
 eselect locale list &&
 sleep 1m &&
-eselect locale set 6
-
+eselect locale set 6 &&
 env-update &&
 source /etc/profile &&
-export PS1="(chroot) $PS1"
-
-emerge --ask --verbose net-misc/ntp &&
+export PS1="(chroot) $PS1" &&
+emerge --ask --verbose net-misc/ntp dosfstools grub &&
 ntpd -q -g &&
 hwclock --systohc
-
-paperconfig -p letter
-
-emerge --ask --verbose dosfstools grub
 
 # host-env
 # cp --dereference /etc/default/grub /mnt/gentoo/etc/default/
