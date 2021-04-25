@@ -4,10 +4,10 @@ mount /dev/sda1 /boot &&
 rm stage3-amd64-*.tar.xz &&
 emerge --sync
 
-eselect news list
-
-eselect news read
-
+eselect news list &&
+sleep 1m &&
+eselect news read &&
+sleep 2m &&
 eselect news purge
 
 eselect profile list &&
