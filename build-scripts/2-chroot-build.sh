@@ -63,10 +63,9 @@ blkid
 vim /etc/default/grub
 
 grub-install --target=x86_64-efi --efi-directory=/boot --removable &&
-grub-mkconfig -o /boot/grub/grub.cfg
-
+grub-mkconfig -o /boot/grub/grub.cfg &&
 emerge --sync &&
-sleep 5m &&
+sleep 1m &&
 emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
 
 paperconfig -p letter
