@@ -49,7 +49,9 @@ eselect locale set 6 &&
 env-update &&
 source /etc/profile &&
 export PS1="(chroot) $PS1" &&
-emerge --ask --verbose net-misc/ntp dosfstools grub &&
+
+emerge --ask --verbose net-misc/ntp dosfstools grub
+
 ntpd -q -g &&
 hwclock --systohc
 
