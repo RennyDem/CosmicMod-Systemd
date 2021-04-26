@@ -31,7 +31,7 @@ sleep 1m &&
 emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
 
 # Host-env
-vim mnt/gentoo/etc/portage/package.use/circular.use
+# vim mnt/gentoo/etc/portage/package.use/circular.use
 
 emerge --ask --verbose vim &&
 sleep 1m &&
