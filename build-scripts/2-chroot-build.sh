@@ -103,14 +103,12 @@ eselect fontconfig enable 1 2 3 4 6 8 9 10 11 12 13 14 15 16 17 18 20 21 22 23 2
 
 env-update &&
 source /etc/profile &&
-export PS1="(chroot) $PS1"
-
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-emerge --ask --verbose --depclean &&
-echo 'cleaning old dist files in 30 sec' &&
-sleep 30 &&
+export PS1="(chroot) $PS1" &&
+emerge --ask --depclean &&
+echo 'cleaning old distfiles in 1m' &&
+sleep 1m &&
 eclean -d distfiles
+echo 'script successfully completed'
 
 vim /etc/resolv.conf
 
