@@ -6,7 +6,7 @@ sync
 
 reboot
 
-screen -S CosmicMod-2021-r1
+screen -S CosmicMod-2021-r2
 
 fdisk -l
 
