@@ -40,7 +40,7 @@ swapon /dev/sda2 &&
 mkdir /mnt/gentoo &&
 mount /dev/sda3 /mnt/gentoo &&
 cd /mnt/gentoo &&
-wget http://gentoo.osuosl.org/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20210421T214502Z.tar.xz &&
+wget https://mirrors.rit.edu/gentoo/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20210519T214503Z.tar.xz &&
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 mkdir --parents /mnt/gentoo/etc/portage/repos.conf &&
@@ -53,7 +53,8 @@ cp --dereference /etc/hosts /mnt/gentoo/etc/ &&
 cp --dereference /etc/locale.gen /mnt/gentoo/etc/ &&
 cp --dereference /etc/fstab /mnt/gentoo/etc/
 
-blkid
+# In new terminal
+# blkid
 
 vim /mnt/gentoo/etc/fstab
 
