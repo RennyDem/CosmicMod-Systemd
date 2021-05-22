@@ -75,11 +75,12 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 emerge --ask --verbose kde-plasma/plasma-meta
 
-eselect news list &&
-sleep 30 &&
+eselect news list
+sleep 1m &&
 eselect news read &&
-sleep 30 &&
-eselect news purge
+sleep 1m &&
+eselect news purge &&
+echo 'news successfully read and purged'
 
 # host-env
 # cp --dereference /etc/conf.d/display-manager /mnt/gentoo/etc/conf.d/
