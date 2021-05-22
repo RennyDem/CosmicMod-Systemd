@@ -11,25 +11,15 @@ screen -S CosmicMod-2021-r2
 fdisk -l
 
 parted -a optimal /dev/sda
-
 mklabel gpt
-
 unit MiB
-
 mkpart primary 3 10000
-
 name 1 boot
-
 mkpart primary 10000 26000
-
 name 2 swap
-
 mkpart primary 26000 -1000
-
 name 3 rootfs
-
 set 1 boot on
-
 quit
 
 sync &&
