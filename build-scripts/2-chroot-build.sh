@@ -4,16 +4,18 @@ mount /dev/sda1 /boot &&
 rm stage3-amd64-*.tar.xz &&
 emerge --sync
 
-eselect news list &&
-sleep 1m &&
+eselect news list
+
 eselect news read &&
 sleep 2m &&
-eselect news purge
+eselect news purge &&
+echo 'news purged'
 
 eselect profile list &&
-echo "setting selection 8 in 20 sec" &&
-sleep 20 &&
-eselect profile set 8
+echo "setting selection 8 in 1m" &&
+sleep 1m &&
+eselect profile set 8 &&
+echo 'successfully set profile to 17.1 plasma stable'
 
 # ls /usr/share/zoneinfo/US
 echo "US/Central" > /etc/timezone
@@ -23,7 +25,8 @@ emerge --config sys-libs/timezone-data
 emerge --ask --verbose linux-firmware &&
 echo 'emerging the kernel in 1 minute' &&
 sleep 1m &&
-emerge --ask --verbose gentoo-kernel
+emerge --ask --verbose gentoo-kernel &&
+echo 'successfully emerged firmware and kernel'
 
 emerge --sync &&
 echo 'Updating the system in 1 minute' &&
@@ -31,7 +34,7 @@ sleep 1m &&
 emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
 
 # Host-env
-# vim mnt/gentoo/etc/portage/package.use/circular.use
+# vim /mnt/gentoo/etc/portage/package.use/circular.use
 
 emerge --ask --verbose vim &&
 sleep 1m &&
