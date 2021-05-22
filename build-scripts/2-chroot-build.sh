@@ -36,6 +36,11 @@ emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
 # Host-env
 # vim /mnt/gentoo/etc/portage/package.use/circular.use
 
+emerge --sync &&
+echo 'Updating the system in 1 minute' &&
+sleep 1m &&
+emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
+
 emerge --ask --verbose vim &&
 sleep 1m &&
 emerge --ask --verbose --depclean &&
