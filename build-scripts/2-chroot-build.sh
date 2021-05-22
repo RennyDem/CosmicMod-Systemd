@@ -41,6 +41,8 @@ echo 'Updating the system in 1 minute' &&
 sleep 1m &&
 emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
 
+paperconfig -p letter
+
 emerge --ask --verbose vim &&
 sleep 1m &&
 emerge --ask --verbose --depclean &&
@@ -65,16 +67,11 @@ hwclock --systohc
 # host-env
 # cp --dereference /etc/default/grub /mnt/gentoo/etc/default/
 # blkid
-# update root=UUID
+# update root=UUID=
 vim /etc/default/grub
 
 grub-install --target=x86_64-efi --efi-directory=/boot --removable &&
-grub-mkconfig -o /boot/grub/grub.cfg &&
-emerge --sync &&
-sleep 1m &&
-emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
-
-paperconfig -p letter
+grub-mkconfig -o /boot/grub/grub.cfg
 
 emerge --ask --verbose kde-plasma/plasma-meta
 
