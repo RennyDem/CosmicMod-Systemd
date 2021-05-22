@@ -57,7 +57,6 @@ eselect locale set 6 &&
 env-update &&
 source /etc/profile &&
 export PS1="(chroot) $PS1" &&
-
 emerge --ask --verbose net-misc/ntp dosfstools grub
 
 ntpd -q -g &&
@@ -65,8 +64,7 @@ hwclock --systohc
 
 # host-env
 # cp --dereference /etc/default/grub /mnt/gentoo/etc/default/
-
-blkid
+# blkid
 # update root=UUID
 vim /etc/default/grub
 
