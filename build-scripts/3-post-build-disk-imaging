@@ -2,6 +2,6 @@
 
 fdisk -l
 
-dd if=/dev/sda conv=sync,noerror bs=64K | gzip -c  > /home/mod/CosmicMod-2021-r2.img.gz
+dd if=/dev/sda conv=sync,noerror bs=64K | gzip -c > /home/mod/CosmicMod-2021-r2.img.gz
 
 sync
