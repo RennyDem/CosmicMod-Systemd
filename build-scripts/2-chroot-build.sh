@@ -130,8 +130,8 @@ passwd mod
 
 passwd
 
-history -c && sync
-
+sync 
+&& history -c && 
 exit
 
 cd
