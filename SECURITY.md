@@ -6,7 +6,8 @@ Versions of CosmicMod currently being supported.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 2021-r1   | :white_check_mark: |
+| 2021-r2   | :white_check_mark: |
+| 2021-r1   | :x: |
 | 2021      | :x:                |
 
 
