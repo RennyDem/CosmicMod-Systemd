@@ -94,24 +94,22 @@ emerge --ask --verbose --sync &&
 sleep 1m &&
 emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
 
-eselect news list &&
-sleep 20 &&
+eselect news list
 eselect news read &&
-sleep 30 &&
+sleep 1m &&
 eselect news purge &&
 revdep-rebuild
 
-eselect fontconfig --list
-
-eselect fontconfig enable 1 2 3 4 6 8 9 10 11 12 13 14 15 16 17 18 20 21 22 23 25 26 28 29 30 31 37 38 39 40 41 42 45 46 48 50 51 52 53 54 56 57 58 61 62
-
+eselect fontconfig enable 1 2 3 4 6 8 9 10 11 12 13 14 15 16 17 18 20 21 22 23 25 26 28 29 30 31 37 38 39 40 41 42 45 46 48 50 51 52 53 54 56 57 58 61 62 &&
+eselect fontconfig list &&
+sleep 1m &&
 env-update &&
 source /etc/profile &&
 export PS1="(chroot) $PS1" &&
 emerge --ask --depclean &&
 echo 'cleaning old distfiles in 1m' &&
 sleep 1m &&
-eclean -d distfiles
+eclean -d distfiles &&
 echo 'script successfully completed'
 
 vim /etc/resolv.conf
@@ -123,7 +121,8 @@ rc-update add dbus default &&
 rc-update add elogind boot &&
 rc-update add display-manager default &&
 rc-update add lvm boot &&
-rc-update add NetworkManager default
+rc-update add NetworkManager default &&
+echo 'All services sucessfully added'
 
 useradd -m -G users,wheel,audio,cdrom,portage,usb,video,lp,lpadmin,uucp,plugdev -s /bin/bash mod
 
@@ -137,11 +136,9 @@ exit
 
 cd
 
-umount -l /mnt/gentoo/dev{/shm,/pts,}
-
-umount -R /mnt/gentoo
-
-exit
+umount -l /mnt/gentoo/dev{/shm,/pts,} &&
+umount -R /mnt/gentoo &&
+exit &&
 
 exit
 
