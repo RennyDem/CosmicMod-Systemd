@@ -6,7 +6,7 @@ sync
 
 reboot
 
-screen -S CosmicMod-2021-r2
+screen -S CosmicMod-2021-r3
 
 fdisk -l
 
@@ -26,11 +26,13 @@ sync &&
 mkfs.fat -F 32 /dev/sda1 &&
 mkfs.ext4 /dev/sda3 &&
 mkswap /dev/sda2 &&
-swapon /dev/sda2 &&
-mkdir /mnt/gentoo &&
+swapon /dev/sda2
+
+mkdir /mnt/gentoo
+
 mount /dev/sda3 /mnt/gentoo &&
 cd /mnt/gentoo &&
-wget https://mirrors.rit.edu/gentoo/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20210519T214503Z.tar.xz &&
+wget https://mirrors.rit.edu/gentoo/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20210524T132807Z.tar.xz &&
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 mkdir --parents /mnt/gentoo/etc/portage/repos.conf &&
