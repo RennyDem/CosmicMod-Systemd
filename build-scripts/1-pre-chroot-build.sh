@@ -28,6 +28,7 @@ mkfs.ext4 /dev/sda3 &&
 mkswap /dev/sda2 &&
 swapon /dev/sda2
 
+# create if needed
 # mkdir /mnt/gentoo
 
 mount /dev/sda3 /mnt/gentoo &&
