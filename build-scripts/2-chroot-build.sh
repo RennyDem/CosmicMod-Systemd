@@ -24,26 +24,27 @@ emerge --config sys-libs/timezone-data
 emerge --ask --verbose linux-firmware &&
 echo 'emerging the kernel in 1 minute' &&
 sleep 1m &&
-emerge --ask --verbose gentoo-kernel &&
+emerge --ask --verbose --quiet gentoo-kernel &&
 echo 'Successfully emerged firmware and kernel'
 
 emerge --sync &&
 echo 'Updating the system in 1 minute' &&
 sleep 1m &&
-emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
+emerge --ask --verbose --update --deep --newuse --quiet --with-bdeps=y @world
 
 # Host-env
 # vim /mnt/gentoo/etc/portage/package.use/circular.use
 
-emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
+emerge --ask --verbose --update --deep --newuse --quiet --with-bdeps=y @world
 
 paperconfig -p letter
 
-emerge --ask --verbose vim &&
+emerge --ask --verbose --quiet vim &&
 sleep 1m &&
-emerge --ask --verbose --depclean &&
+emerge --ask --depclean &&
 eselect editor list &&
 sleep 1m &&
+echo 'Setting editor to #2 in 1m, press ctrl+c to change' &&
 eselect editor set 2 &&
 env-update &&
 source /etc/profile &&
@@ -51,11 +52,12 @@ export PS1="(chroot) $PS1" &&
 locale-gen &&
 eselect locale list &&
 sleep 1m &&
+echo 'Setting locale to #6 in 1m press ctrl+c to change' &&
 eselect locale set 6 &&
 env-update &&
 source /etc/profile &&
 export PS1="(chroot) $PS1" &&
-emerge --ask --verbose net-misc/ntp dosfstools grub
+emerge --ask --verbose --quiet net-misc/ntp dosfstools grub
 
 ntpd -q -g &&
 hwclock --systohc
@@ -69,7 +71,7 @@ vim /etc/default/grub
 grub-install --target=x86_64-efi --efi-directory=/boot --removable &&
 grub-mkconfig -o /boot/grub/grub.cfg
 
-emerge --ask --verbose kde-plasma/plasma-meta
+emerge --ask --verbose --quiet kde-plasma/plasma-meta
 
 eselect news list
 sleep 1m &&
@@ -86,9 +88,9 @@ usermod -a -G video sddm
 # host-env
 # cp --dereference /var/lib/portage/world /mnt/gentoo/var/lib/portage/
 
-emerge --ask --verbose --sync &&
+emerge --ask --sync &&
 sleep 1m &&
-emerge --ask --verbose --update --deep --newuse --with-bdeps=y @world
+emerge --ask --verbose --update --deep --newuse --quiet --with-bdeps=y @world
 
 eselect news list
 eselect news read &&
