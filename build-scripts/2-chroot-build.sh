@@ -5,7 +5,6 @@ rm stage3-amd64-*.tar.xz &&
 emerge --sync
 
 eselect news list
-
 eselect news read &&
 sleep 2m &&
 eselect news purge &&
