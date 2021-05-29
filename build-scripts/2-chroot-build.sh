@@ -43,17 +43,18 @@ emerge --ask --verbose --quiet vim &&
 sleep 1m &&
 emerge --ask --depclean &&
 eselect editor list &&
-sleep 1m &&
 echo 'Setting editor to #2 in 1m, press ctrl+c to change' &&
+sleep 1m &&
 eselect editor set 2 &&
 env-update &&
 source /etc/profile &&
 export PS1="(chroot) $PS1" &&
 locale-gen &&
 eselect locale list &&
-sleep 1m &&
 echo 'Setting locale to #6 in 1m press ctrl+c to change' &&
+sleep 1m &&
 eselect locale set 6 &&
+eselect locale list &&
 env-update &&
 source /etc/profile &&
 export PS1="(chroot) $PS1" &&
