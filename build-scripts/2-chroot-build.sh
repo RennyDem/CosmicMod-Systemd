@@ -37,6 +37,9 @@ emerge --ask --verbose --update --deep --newuse --quiet --with-bdeps=y @world
 
 emerge --ask --verbose --update --deep --newuse --quiet --with-bdeps=y @world
 
+# Host-env
+# vim /mnt/gentoo/etc/portage/package.use/circular.use
+
 paperconfig -p letter
 
 emerge --ask --verbose --quiet vim &&
@@ -75,7 +78,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 emerge --ask --verbose --quiet kde-plasma/plasma-meta
 
 eselect news list
-sleep 1m &&
 eselect news read &&
 sleep 1m &&
 eselect news purge &&
@@ -91,7 +93,7 @@ usermod -a -G video sddm
 
 emerge --ask --sync &&
 sleep 1m &&
-emerge --ask --verbose --update --deep --newuse --quiet --with-bdeps=y @world
+emerge --ask --verbose --quiet --update --deep --newuse --with-bdeps=y @world
 
 eselect news list
 eselect news read &&
