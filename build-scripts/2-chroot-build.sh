@@ -8,13 +8,13 @@ eselect news list
 eselect news read &&
 sleep 2m &&
 eselect news purge &&
-echo 'news purged'
+echo 'news successfully purged'
 
 eselect profile list &&
-echo "setting selection 8 in 1m" &&
+echo 'Setting selection 8 in 1m' &&
 sleep 1m &&
 eselect profile set 8 &&
-echo 'successfully set profile to 17.1 plasma stable'
+echo 'Successfully set profile to 8 - 17.1 plasma stable'
 
 # ls /usr/share/zoneinfo/US
 echo "US/Central" > /etc/timezone
@@ -25,7 +25,7 @@ emerge --ask --verbose linux-firmware &&
 echo 'emerging the kernel in 1 minute' &&
 sleep 1m &&
 emerge --ask --verbose gentoo-kernel &&
-echo 'successfully emerged firmware and kernel'
+echo 'Successfully emerged firmware and kernel'
 
 emerge --sync &&
 echo 'Updating the system in 1 minute' &&
