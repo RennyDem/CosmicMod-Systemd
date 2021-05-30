@@ -103,7 +103,7 @@ revdep-rebuild
 
 eselect fontconfig list
 
-eselect fontconfig enable 1 2 3 4 6 8 9 10 11 12 13 14 15 16 17 18 20 21 22 23 25 26 28 29 30 31 37 38 39 40 41 42 45 46 48 50 51 52 53 54 56 57 58 61 62 &&
+eselect fontconfig enable 1 2 3 4 6 8 9 10 11 12 13 14 15 16 17 18 20 28 29 30 33 35 37 38 39 41 42 &&
 eselect fontconfig list &&
 sleep 1m &&
 env-update &&
