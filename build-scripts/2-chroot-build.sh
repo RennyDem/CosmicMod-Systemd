@@ -17,7 +17,7 @@ eselect profile set 8 &&
 echo 'Successfully set profile to 8 - 17.1 plasma stable'
 
 # ls /usr/share/zoneinfo/US
-echo "US/Central" > /etc/timezone
+echo 'US/Central' > /etc/timezone
 
 emerge --config sys-libs/timezone-data
 
