@@ -86,7 +86,9 @@ echo 'news successfully read and purged'
 # host-env
 # cp --dereference /etc/conf.d/display-manager /mnt/gentoo/etc/conf.d/
 
-usermod -a -G video sddm
+usermod -a -G video sddm &&
+emerge --ask --oneshot --quiet virtual/jre &&
+eselect java-vm show
 
 # host-env
 # cp --dereference /var/lib/portage/world /mnt/gentoo/var/lib/portage/
