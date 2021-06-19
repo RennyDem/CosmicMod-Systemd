@@ -33,7 +33,7 @@ swapon /dev/sda2
 
 mount /dev/sda3 /mnt/gentoo &&
 cd /mnt/gentoo &&
-wget https://mirrors.rit.edu/gentoo/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20210526T214502Z.tar.xz &&
+wget https://mirrors.rit.edu/gentoo/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20210616T214502Z.tar.xz &&
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 mkdir --parents /mnt/gentoo/etc/portage/repos.conf &&
