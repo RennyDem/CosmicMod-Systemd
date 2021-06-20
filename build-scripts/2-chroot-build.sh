@@ -2,13 +2,15 @@ source /etc/profile &&
 export PS1="(chroot) ${PS1}" &&
 mount /dev/sda1 /boot &&
 rm stage3-amd64-*.tar.xz &&
-emerge --sync
+echo 'Sync in progress. Please be patient...' &&
+emerge --ask --quiet --sync
 
 eselect news list
 eselect news read &&
+echo 'News will be purged in 2m press ctrl+c to stop if you need to smell the roses' &&
 sleep 2m &&
 eselect news purge &&
-echo 'news successfully purged'
+echo 'News successfully purged.'
 
 eselect profile list &&
 echo 'Setting selection 8 in 1m' &&
@@ -21,24 +23,13 @@ echo 'US/Central' > /etc/timezone
 
 emerge --config sys-libs/timezone-data
 
-emerge --ask --verbose linux-firmware &&
-echo 'emerging the kernel in 1 minute' &&
+emerge --ask --verbose --quiet linux-firmware &&
+echo 'Emerging the kernel in 1 minute...' &&
 sleep 1m &&
 emerge --ask --verbose --quiet gentoo-kernel &&
-echo 'Successfully emerged firmware and kernel'
-
-emerge --sync &&
-echo 'Updating the system in 1 minute' &&
-sleep 1m &&
-emerge --ask --verbose --update --deep --newuse --quiet --with-bdeps=y @world
-
-# Host-env
-# vim /mnt/gentoo/etc/portage/package.use/circular.use
+echo 'Successfully emerged firmware and kernel.'
 
 emerge --ask --verbose --update --deep --newuse --quiet --with-bdeps=y @world
-
-# Host-env
-# vim /mnt/gentoo/etc/portage/package.use/circular.use
 
 paperconfig -p letter
 
