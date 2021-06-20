@@ -142,3 +142,6 @@ exit
 exit
 
 exit
+
+# host-env
+poweroff
