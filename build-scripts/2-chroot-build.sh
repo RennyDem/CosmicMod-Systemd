@@ -45,7 +45,7 @@ source /etc/profile &&
 export PS1="(chroot) $PS1" &&
 locale-gen &&
 eselect locale list &&
-echo 'Setting locale to #6 in 1m press ctrl+c to change' &&
+echo 'Setting locale to #6 in 1m. Press ctrl+c to change/stop.' &&
 sleep 1m &&
 eselect locale set 6 &&
 eselect locale list &&
@@ -66,23 +66,22 @@ vim /etc/default/grub
 grub-install --target=x86_64-efi --efi-directory=/boot --removable &&
 grub-mkconfig -o /boot/grub/grub.cfg
 
+emerge --ask --quiet --sync &&
 emerge --ask --verbose --quiet kde-plasma/plasma-meta
 
 eselect news list
 eselect news read &&
 sleep 1m &&
 eselect news purge &&
-echo 'news successfully read and purged'
+echo 'News successfully read and purged :D'
 
 # host-env
-# cp --dereference /etc/conf.d/display-manager /mnt/gentoo/etc/conf.d/
+cp --dereference /etc/conf.d/display-manager /mnt/gentoo/etc/conf.d/ &&
+cp --dereference /var/lib/portage/world /mnt/gentoo/var/lib/portage/
 
-usermod -a -G video sddm
-
-# host-env
-# cp --dereference /var/lib/portage/world /mnt/gentoo/var/lib/portage/
-
-emerge --ask --sync &&
+usermod -a -G video sddm &&
+emerge --ask --sync --quiet &&
+echo 'Updating system in 1m.  Press ctrl+c to stop' &&
 sleep 1m &&
 emerge --ask --verbose --quiet --update --deep --newuse --with-bdeps=y @world
 
