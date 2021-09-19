@@ -79,6 +79,9 @@ echo 'News successfully read and purged :D'
 cp --dereference /etc/conf.d/display-manager /mnt/gentoo/etc/conf.d/ &&
 cp --dereference /var/lib/portage/world /mnt/gentoo/var/lib/portage/
 
+eselect java-vm list &&
+sleep 10 &&
+eselect java-vm set system 1 &&
 usermod -a -G video sddm &&
 emerge --ask --sync --quiet &&
 echo 'Updating system in 1m.  Press ctrl+c to stop.' &&
