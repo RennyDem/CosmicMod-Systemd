@@ -13,7 +13,7 @@ eselect news purge &&
 echo 'News successfully purged.'
 
 eselect profile list &&
-echo 'Setting selection 8 in 1m' &&
+echo 'Setting selection 8 in 1m, press ctrl+c to cancel and choose differently' &&
 sleep 1m &&
 eselect profile set 8 &&
 echo 'Successfully set profile to 8 - 17.1 plasma stable'
