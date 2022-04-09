@@ -33,7 +33,7 @@ swapon /dev/sda2
 
 mount /dev/sda3 /mnt/gentoo &&
 cd /mnt/gentoo &&
-wget https://mirrors.rit.edu/gentoo/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20210616T214502Z.tar.xz &&
+wget https://gentoo.osuosl.org/releases/amd64/autobuilds/current-stage3-amd64-desktop-openrc/stage3-amd64-desktop-openrc-20220403T220339Z.tar.xz &&
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 mkdir --parents /mnt/gentoo/etc/portage/repos.conf &&
@@ -48,12 +48,14 @@ cp --dereference /etc/fstab /mnt/gentoo/etc/ &&
 cp --dereference /etc/portage/repos.conf/gentoo.conf /mnt/gentoo/etc/portage/repos.conf/ &&
 echo 'files sucessfully copied'
 
-# In new terminal
+# In host env
 # blkid
 
 vim /mnt/gentoo/etc/fstab
 
 vim /mnt/gentoo/etc/portage/package.use/zz.use
+
+# return to chroot env
 
 mount --types proc /proc /mnt/gentoo/proc &&
 mount --rbind /sys /mnt/gentoo/sys &&
