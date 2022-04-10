@@ -71,6 +71,14 @@ grub-mkconfig -o /boot/grub/grub.cfg &&
 emerge --ask --quiet --sync &&
 emerge --ask --verbose --quiet kde-plasma/plasma-meta
 
+vim /etc/portage/package.use/circular.use
+# add if needed
+media-libs/libsndfile minimal
+media-sound/mpgChange -pulseaudio
+
+# re-emerge if needed
+emerge --verbose --quiet kde-plasma/plasma-meta
+
 eselect news list
 eselect news read &&
 sleep 1m &&
