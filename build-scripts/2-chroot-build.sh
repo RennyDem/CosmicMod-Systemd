@@ -107,8 +107,6 @@ sleep 1m &&
 eselect news purge &&
 revdep-rebuild
 
-eselect fontconfig list
-
 eselect fontconfig enable \
 1 2 3 4 5 6 7 8 9 10 \
 11 12 13 14 15 16 17 18 19 20 \
@@ -117,6 +115,7 @@ eselect fontconfig enable \
 41 42 43 44 45 46 47 48 49 50 \
 51 52 53 54 55 56 57 58 59 60 \
 61 62 63 64 65 66 67 68 69 70
+eselect fontconfig list
 
 env-update &&
 source /etc/profile &&
