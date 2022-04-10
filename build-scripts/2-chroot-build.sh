@@ -85,10 +85,11 @@ sleep 1m &&
 eselect news purge &&
 echo 'News successfully read and purged :D'
 
-# host-env
+# from host-env
 cp --dereference /etc/conf.d/display-manager /mnt/gentoo/etc/conf.d/ &&
 cp --dereference /var/lib/portage/world /mnt/gentoo/var/lib/portage/
 
+# back to chroot env
 usermod -a -G video sddm &&
 emerge --ask --sync --quiet &&
 echo 'Updating system in 1m.  Press ctrl+c to stop.' &&
@@ -131,6 +132,7 @@ rc-update add elogind boot &&
 rc-update add display-manager default &&
 rc-update add lvm boot &&
 rc-update add NetworkManager default &&
+rc-update add lm_sensors default &&
 echo 'All services sucessfully added'
 
 useradd -m -G users,wheel,audio,cdrom,portage,usb,video,lp,lpadmin,uucp,plugdev -s /bin/bash mod
