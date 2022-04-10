@@ -1,3 +1,5 @@
+## The bash scripts below will be updated to a more fully automated script once it has been further refined. 
+
 source /etc/profile &&
 export PS1="(chroot) ${PS1}" &&
 mount /dev/sda1 /boot &&
