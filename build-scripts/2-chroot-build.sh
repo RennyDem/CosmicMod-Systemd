@@ -31,8 +31,6 @@ echo 'Successfully emerged firmware and kernel.'
 
 emerge --ask --verbose --update --deep --newuse --quiet --with-bdeps=y @world
 
-paperconfig -p letter
-
 emerge --ask --verbose --quiet vim &&
 sleep 1m &&
 emerge --ask --depclean &&
@@ -57,15 +55,19 @@ emerge --ask --verbose --quiet net-misc/ntp dosfstools grub
 ntpd -q -g &&
 hwclock --systohc
 
-# host-env
-# cp --dereference /etc/default/grub /mnt/gentoo/etc/default/
-# blkid
+# switch to host-env
+
+cp --dereference /etc/default/grub /mnt/gentoo/etc/default/
+
+blkid
+
 # update root=UUID=
 vim /etc/default/grub
 
-grub-install --target=x86_64-efi --efi-directory=/boot --removable &&
-grub-mkconfig -o /boot/grub/grub.cfg
+# back to chroot env
 
+grub-install --target=x86_64-efi --efi-directory=/boot --removable &&
+grub-mkconfig -o /boot/grub/grub.cfg &&
 emerge --ask --quiet --sync &&
 emerge --ask --verbose --quiet kde-plasma/plasma-meta
 
