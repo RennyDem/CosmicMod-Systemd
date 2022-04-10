@@ -87,11 +87,14 @@ sleep 1m &&
 eselect news purge &&
 echo 'News successfully read and purged :D'
 
+# edit circular if needed and clear out file
+vim /etc/portage/package.use/circular.use
+
 # from host-env
 cp --dereference /etc/conf.d/display-manager /mnt/gentoo/etc/conf.d/ &&
 cp --dereference /var/lib/portage/world /mnt/gentoo/var/lib/portage/
 
-# back to chroot env
+# in chroot env
 usermod -a -G video sddm &&
 emerge --ask --sync --quiet &&
 echo 'Updating system in 1m.  Press ctrl+c to stop.' &&
