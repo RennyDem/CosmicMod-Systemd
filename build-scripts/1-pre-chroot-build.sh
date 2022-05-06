@@ -1,3 +1,5 @@
+## The bash block scripts below will be updated to a more fully automated script once it has been further refined.
+
 fdisk -l
 
 dd if=/dev/zero of=/dev/sda bs=1M
