@@ -7,13 +7,7 @@ rm stage3-amd64-*.tar.xz &&
 echo 'Sync in progress. Please be patient...' &&
 emerge --ask --quiet --sync
 
-eselect news list
-eselect news read &&
-echo 'News will be purged in 2m press ctrl+c to stop if you need to smell the roses' &&
-sleep 2m &&
 eselect news purge &&
-echo 'News successfully purged.'
-
 eselect profile list &&
 echo 'Setting selection 8 in 1m, press ctrl+c to cancel and choose differently' &&
 sleep 1m &&
