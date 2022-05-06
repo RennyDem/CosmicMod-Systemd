@@ -33,7 +33,7 @@ swapon /dev/sda2
 
 mount /dev/sda3 /mnt/gentoo &&
 cd /mnt/gentoo &&
-wget https://gentoo.osuosl.org/releases/amd64/autobuilds/current-stage3-amd64-desktop-openrc/stage3-amd64-desktop-openrc-20220403T220339Z.tar.xz &&
+wget https://gentoo.osuosl.org/releases/amd64/autobuilds/current-stage3-amd64-desktop-openrc/stage3-amd64-desktop-openrc-20220501T170547Z.tar.xz &&
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 mkdir --parents /mnt/gentoo/etc/portage/repos.conf &&
@@ -48,14 +48,13 @@ cp --dereference /etc/fstab /mnt/gentoo/etc/ &&
 cp --dereference /etc/portage/repos.conf/gentoo.conf /mnt/gentoo/etc/portage/repos.conf/ &&
 echo 'files sucessfully copied'
 
-# In host env
-# blkid
-
+blkid
+# from host env
 vim /mnt/gentoo/etc/fstab
 
 vim /mnt/gentoo/etc/portage/package.use/zz.use
 
-# return to chroot env
+# in chroot env
 
 mount --types proc /proc /mnt/gentoo/proc &&
 mount --rbind /sys /mnt/gentoo/sys &&
@@ -66,5 +65,5 @@ mount --bind /run /mnt/gentoo/run &&
 mount --make-slave /mnt/gentoo/run &&
 test -L /dev/shm && rm /dev/shm && mkdir /dev/shm &&
 mount --types tmpfs --options nosuid,nodev,noexec shm /dev/shm &&
-chmod 1777 /dev/shm /run/shm &&
+chmod 1777 /dev/shm &&
 chroot /mnt/gentoo /bin/bash
