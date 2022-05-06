@@ -57,29 +57,28 @@ cp --dereference /etc/default/grub /mnt/gentoo/etc/default/
 
 blkid
 
+# back to chroot env
+
 # update root=UUID=
 vim /etc/default/grub
 
-# back to chroot env
-
 grub-install --target=x86_64-efi --efi-directory=/boot --removable &&
-grub-mkconfig -o /boot/grub/grub.cfg &&
+grub-mkconfig -o /boot/grub/grub.cfg
+
 emerge --ask --quiet --sync &&
 emerge --ask --verbose --quiet kde-plasma/plasma-meta
 
 vim /etc/portage/package.use/circular.use
 # add if needed
 media-libs/libsndfile minimal
-media-sound/mpgChange -pulseaudio
+media-sound/mpg123 -sdl
+media-libs/libsdl2 -pulseaudio
 
 # re-emerge if needed
 emerge --verbose --quiet kde-plasma/plasma-meta
 
-eselect news list
 eselect news read &&
-sleep 1m &&
-eselect news purge &&
-echo 'News successfully read and purged :D'
+eselect news purge
 
 # edit circular if needed and clear out file
 vim /etc/portage/package.use/circular.use
