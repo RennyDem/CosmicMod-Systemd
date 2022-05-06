@@ -89,7 +89,7 @@ cp --dereference /var/lib/portage/world /mnt/gentoo/var/lib/portage/
 
 # in chroot env
 usermod -a -G video sddm &&
-emerge --ask --sync --quiet &&
+emerge --sync --quiet &&
 echo 'Updating system in 1m.  Press ctrl+c to stop.' &&
 sleep 1m &&
 emerge --ask --verbose --quiet --update --deep --newuse --with-bdeps=y @world
