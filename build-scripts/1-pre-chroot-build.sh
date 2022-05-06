@@ -67,5 +67,5 @@ mount --bind /run /mnt/gentoo/run &&
 mount --make-slave /mnt/gentoo/run &&
 test -L /dev/shm && rm /dev/shm && mkdir /dev/shm &&
 mount --types tmpfs --options nosuid,nodev,noexec shm /dev/shm &&
-chmod 1777 /dev/shm /run/shm &&
+chmod 1777 /dev/shm &&
 chroot /mnt/gentoo /bin/bash
