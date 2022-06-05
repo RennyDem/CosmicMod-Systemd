@@ -51,13 +51,13 @@ emerge --ask --verbose --quiet net-misc/ntp dosfstools grub
 ntpd -q -g &&
 hwclock --systohc
 
-# switch to host-env
+# from host-env
 
 cp --dereference /etc/default/grub /mnt/gentoo/etc/default/
 
 blkid
 
-# back to chroot env
+# in chroot env
 
 # update root=UUID=
 vim /etc/default/grub
@@ -152,5 +152,5 @@ exit
 
 exit
 
-# host-env
+# from host-env
 poweroff
