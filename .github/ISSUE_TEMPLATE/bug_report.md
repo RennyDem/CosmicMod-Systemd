@@ -26,12 +26,12 @@ If applicable, add screenshots to help explain your problem.
 **Desktop (please complete the following information):**
  - OS: [e.g. CosmicMod]
  - Browser [e.g. chrome, firefox]
- - Version [e.g. 22]
+ - Version [e.g. 2022]
 
 **(please complete the following information):**
  - Device: [e.g. Asus Laptop]
  - Kernel: [e.g. helpful info like kernel version from uname -r]
- - Browser [e.g. stock browser, chr]
+ - Browser [e.g. stock browser, chrome]
  - Version [e.g. 22]
 
 
