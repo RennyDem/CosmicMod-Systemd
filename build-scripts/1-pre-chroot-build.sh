@@ -51,12 +51,10 @@ cp --dereference /etc/portage/repos.conf/gentoo.conf /mnt/gentoo/etc/portage/rep
 echo 'files sucessfully copied'
 
 blkid
-# from host env
+
 vim /mnt/gentoo/etc/fstab
 
 vim /mnt/gentoo/etc/portage/package.use/zz.use
-
-# in chroot env
 
 mount --types proc /proc /mnt/gentoo/proc &&
 mount --rbind /sys /mnt/gentoo/sys &&
