@@ -1,3 +1,6 @@
+##  This code section is not relevant for most people it just has scripts for building/compiling the disk image. 
+##  The fully built disk image is already provided in the releases section of the Wiki.
+
 # For creating disk image.
 
 fdisk -l
