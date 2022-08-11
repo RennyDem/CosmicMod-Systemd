@@ -1,4 +1,5 @@
-## The bash block scripts below will be updated to a more fully automated script once it has been further refined.
+##  This code section is not relevant for most people it just has scripts for building/compiling the disk image. 
+##  The fully built disk image is already provided in the releases section of the Wiki..
 
 fdisk -l
 
