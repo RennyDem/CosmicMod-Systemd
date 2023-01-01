@@ -45,7 +45,6 @@ cp --dereference /etc/resolv.conf /mnt/gentoo/etc/ &&
 cp --dereference /etc/portage/make.conf /mnt/gentoo/etc/portage/ &&
 cp --dereference /etc/portage/package.use/zz.use /mnt/gentoo/etc/portage/package.use/ &&
 cp --dereference /etc/conf.d/hostname /mnt/gentoo/etc/conf.d/ &&
-cp --dereference /etc/hosts /mnt/gentoo/etc/ &&
 cp --dereference /etc/locale.gen /mnt/gentoo/etc/ &&
 cp --dereference /etc/fstab /mnt/gentoo/etc/ &&
 cp --dereference /etc/portage/repos.conf/gentoo.conf /mnt/gentoo/etc/portage/repos.conf/ &&
