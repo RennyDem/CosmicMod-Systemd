@@ -21,10 +21,10 @@ echo 'US/Central' > /etc/timezone
 emerge --config sys-libs/timezone-data
 
 emerge --ask --verbose --quiet linux-firmware &&
-echo 'Emerging the kernel in 1 minute...' &&
+echo 'Emerging the kernel in 1 minute... Get ready baby!' &&
 sleep 1m &&
 emerge --ask --verbose --quiet gentoo-kernel &&
-echo 'Successfully emerged firmware and kernel.'
+echo 'Successfully emerged firmware and kernel. Oh yeah!'
 
 emerge --ask --verbose --update --deep --newuse --quiet --with-bdeps=y @world
 
@@ -32,7 +32,7 @@ emerge --ask --verbose --quiet vim &&
 sleep 1m &&
 emerge --ask --depclean &&
 eselect editor list &&
-echo 'Setting editor to #2 in 1m, press ctrl+c to change' &&
+echo 'Setting editor to #2 in 1m. Press ctrl+c to change, hmph!' &&
 sleep 1m &&
 eselect editor set 2 &&
 env-update &&
@@ -40,7 +40,7 @@ source /etc/profile &&
 export PS1="(chroot) $PS1" &&
 locale-gen &&
 eselect locale list &&
-echo 'Setting locale to #6 in 1m. Press ctrl+c to change/stop.' &&
+echo 'Setting locale to #6 in 1m. Press ctrl+c to change/stop, okay?' &&
 sleep 1m &&
 eselect locale set 6 &&
 eselect locale list &&
@@ -91,7 +91,7 @@ cp --dereference /var/lib/portage/world /mnt/gentoo/var/lib/portage/
 # in chroot env
 usermod -a -G video sddm &&
 emerge --sync --quiet &&
-echo 'Updating system in 1m.  Press ctrl+c to stop.' &&
+echo 'Shhh... Updating system in 1m.  Press ctrl+c to stop.' &&
 sleep 1m &&
 emerge --ask --verbose --quiet --update --deep --newuse --with-bdeps=y @world
 
@@ -122,16 +122,14 @@ echo 'Script successfully completed :P'
 
 vim /etc/resolv.conf
 
-rc-update add metalog default &&
-rc-update add bluetooth default &&
-rc-update add cupsd default &&
-rc-update add dbus default &&
-rc-update add elogind boot &&
-rc-update add display-manager default &&
-rc-update add lvm boot &&
-rc-update add NetworkManager default &&
-rc-update add lm_sensors default &&
-echo 'All services sucessfully added'
+systemctl enable bluetooth.service && #used https://askubuntu.com/questions/744640/best-way-to-deactivate-bluetooth-on-system-startup-with-systemd-and-not-upstar as a guide
+systemctl enable cups.service && #used https://wiki.archlinux.org/title/CUPS as a source (source as in material of information, not source code)
+systemctl enable systemd-logind.service &&
+systemctl enable sddm.service && # forgot the source for this thingmajig
+systemctl enable lvm2-monitor.service && #from https://wiki.gentoo.org/wiki/LVM#systemd
+systemctl enable NetworkManager && #from https://wiki.gentoo.org/wiki/NetworkManager#systemd
+systemctl enable lm_sensors && #from https://wiki.gentoo.org/wiki/Lm_sensors#systemd
+echo 'All services sucessfully enabled, my man!'
 
 useradd -m -G users,wheel,audio,cdrom,portage,usb,video,lp,lpadmin,uucp,plugdev -s /bin/bash mod
 
