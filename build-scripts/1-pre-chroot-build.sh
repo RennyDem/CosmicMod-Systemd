@@ -36,7 +36,7 @@ swapon /dev/sda2
 
 mount /dev/sda3 /mnt/gentoo &&
 cd /mnt/gentoo &&
-wget https://gentoo.osuosl.org/releases/amd64/autobuilds/current-stage3-amd64-desktop-systemd/stage3-amd64-desktop-systemd-20230220T081656Z.tar.xz &&
+wget https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/20230312T164650Z/stage3-amd64-desktop-systemd-20230312T164650Z.tar.xz &&
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 mkdir --parents /mnt/gentoo/etc/portage/repos.conf &&
