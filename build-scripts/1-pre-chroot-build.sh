@@ -9,7 +9,7 @@ sync
 
 reboot
 
-screen -S CosmicMod-2022
+screen -S Muckyroo-2023
 
 fdisk -l
 
