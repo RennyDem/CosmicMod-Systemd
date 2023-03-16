@@ -67,7 +67,10 @@ grub-install --target=x86_64-efi --efi-directory=/boot --removable &&
 grub-mkconfig -o /boot/grub/grub.cfg
 
 emerge --ask --quiet --sync &&
-emerge --ask --verbose --quiet kde-plasma/plasma-meta
+emerge --ask --verbose --quiet kde-plasma/plasma-meta &&
+emerge --ask sys-apps/flatpak &&
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo &&
+flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 
 vim /etc/portage/package.use/circular.use
 # add if needed
