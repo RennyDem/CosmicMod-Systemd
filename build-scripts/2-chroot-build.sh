@@ -127,14 +127,27 @@ echo 'Script successfully completed :P'
 
 vim /etc/resolv.conf
 
-systemctl enable bluetooth.service && #used https://askubuntu.com/questions/744640/best-way-to-deactivate-bluetooth-on-system-startup-with-systemd-and-not-upstar as a guide
-systemctl enable cups.service && #used https://wiki.archlinux.org/title/CUPS as a source (source as in material of information, not source code)
+echo "systemctl enable bluetooth.service && 
+systemctl enable cups.service && 
 systemctl enable systemd-logind.service &&
-systemctl enable sddm.service && # forgot the source for this thingmajig, this looks good though: https://wiki.gentoo.org/wiki/SDDM#systemd
-systemctl enable lvm2-monitor.service && #from https://wiki.gentoo.org/wiki/LVM#systemd
-systemctl enable NetworkManager && #from https://wiki.gentoo.org/wiki/NetworkManager#systemd
-systemctl enable lm_sensors && #from https://wiki.gentoo.org/wiki/Lm_sensors#systemd
-echo 'All services sucessfully enabled, my man!'
+systemctl enable sddm.service && 
+systemctl enable lvm2-monitor.service && 
+systemctl enable NetworkManager && 
+systemctl enable lm_sensors && 
+echo 'All services sucessfully enabled, my man!'" >> systemctl-tools
+
+#used https://askubuntu.com/questions/744640/best-way-to-deactivate-bluetooth-on-system-startup-with-systemd-and-not-upstar as a guide
+#used https://wiki.archlinux.org/title/CUPS as a source (source as in material of information, not source code)
+# forgot the source for this thingmajig, this looks good though: https://wiki.gentoo.org/wiki/SDDM#systemd
+#from https://wiki.gentoo.org/wiki/LVM#systemd
+#from https://wiki.gentoo.org/wiki/NetworkManager#systemd
+#from https://wiki.gentoo.org/wiki/Lm_sensors#systemd
+chmod +x systemctl-tools
+
+cp systemctl-tools /usr/bin
+cp systemctl-tools /bin
+
+echo "@reboot systemctl-tools" >> /tmp/crontab.tmp | crontab
 
 useradd -m -G users,wheel,audio,cdrom,portage,usb,video,lp,lpadmin,uucp,plugdev -s /bin/bash mod
 
