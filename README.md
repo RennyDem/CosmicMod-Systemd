@@ -6,3 +6,5 @@ This code repo only has information for building the disk image which is not nec
 See the Wiki section for most of the useful and relevant information for utilizing CosmicMod GNU/Linux.  http://cosmicmod.net
 
 We are on Discord.  https://discord.gg/6n5GH5xwZe
+
+Note: This is not affiliated with Mockaroo. 
